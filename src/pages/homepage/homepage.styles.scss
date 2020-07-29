@@ -1,0 +1,8 @@
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 80px;
+}
+// a diferença dos blocos está acontecendo devido ao flex, quando colocamos 3 blocos na mesma linha o proximo tem que descer
+// quando o bloco desce, ele fica com mais espaço, e por isso se dá a diferença de tamanho entre os dois.
