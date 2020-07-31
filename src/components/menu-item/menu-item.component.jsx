@@ -1,11 +1,18 @@
 import React from "react";
 import "./menu-item.styles.scss";
-const MenuItem = ({ title, image, size }) => (
-  <div className={`${size} menu-item`}>
+import { withRouter } from "react-router-dom";
+
+const MenuItem = ({ title, imageUrl, size, linkUrl, history }) => (
+  <div
+    className={`${size} menu-item`}
+    onClick={() => {
+      history.push(linkUrl);
+    }}
+  >
     <div
       className="background-image"
       style={{
-        backgroundImage: `url(${image})`,
+        backgroundImage: `url(${imageUrl})`,
       }}
     />
     <div className="content">
@@ -15,7 +22,7 @@ const MenuItem = ({ title, image, size }) => (
   </div>
 );
 
-export default MenuItem;
+export default withRouter(MenuItem);
 
 // usamos o classname com colchetes pois assim o react sabe que o que está dentro pode ser um codigo javascript
 // então utilizamos a interpolação, criando uma classe large caso size seja passado como props
