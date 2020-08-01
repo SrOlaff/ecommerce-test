@@ -1,5 +1,6 @@
 import React from "react";
 import "./collection-preview.styles.scss";
+import CollectionItem from "../collection-item/collection-item.component";
 /*  aqui o que o cara fez foi bem inteligente, ele tirou do array shop usando o metodo de desconstrução para que possamos fazer o map
 apenas nos items que queremos, sem tocar no array SHOP_DATA, apenas pegando o items
 */
@@ -13,8 +14,8 @@ const CollectionPreview = ({ title, items }) => {
       <div className="preview">
         {items
           .filter((item, idx) => idx < 4)
-          .map((item) => (
-            <div key={item.id}>{item.name}</div>
+          .map(({ id, ...otherItemProps }) => (
+            <CollectionItem key={id} {...otherItemProps} />
           ))}
       </div>
     </div>

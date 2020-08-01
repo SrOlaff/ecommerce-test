@@ -9,9 +9,9 @@ const CollectionItem = ({ id, name, price, imageUrl }) => (
         backgroundImage: `url(${imageUrl})`,
       }}
     />
-    <div className="collectiom-footer">
+    <div className="collection-footer">
       <span className="name">{name}</span>
-      <span className="price">{price}</span>
+      <span className="price">{price}$</span>
     </div>
   </div>
 );
