@@ -24,5 +24,6 @@ const MenuItem = ({ title, imageUrl, size, linkUrl, history }) => (
 
 export default withRouter(MenuItem);
 
-// usamos o classname com colchetes pois assim o react sabe que o que está dentro pode ser um codigo javascript
+// usamos o className com colchetes pois assim o react sabe que o que está dentro pode ser um codigo javascript
 // então utilizamos a interpolação, criando uma classe large caso size seja passado como props
+// usamos o withRouter() pois ai podemos usar o metodo history do react-router-dom

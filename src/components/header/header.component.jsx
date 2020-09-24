@@ -18,5 +18,5 @@ const Header = () => (
     </div>
   </div>
 );
-
+// Link é como um <a>, porém, ele adiciona o '/variavel' na URL
 export default Header;
