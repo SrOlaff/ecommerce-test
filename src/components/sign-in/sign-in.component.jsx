@@ -20,8 +20,14 @@ class SignIn extends React.Component {
   };
 
   handleChange = (e) => {
+    /*
+      Aqui no handle change ele usa um setState dinamico, a cada mudança nos componentes é extraido o nome do componente 
+    e o valor da mudança,que é setado no setState, nesse caso, o componente tem o mesmo nome do state que eu quero mudar, 
+    então eu consigo usar o nome do componentes como variavel no setState.
+    */
+
     const { value, name } = e.target;
-    this.setState({ [name]: value }, console.log(value));
+    this.setState({ [name]: value });
   };
 
   render() {
@@ -36,21 +42,25 @@ class SignIn extends React.Component {
             type="email"
             label="Email"
             value={this.state.email}
-            required
             handleChange={this.handleChange}
+            required
           />
           <FormInput
             name="password"
             type="password"
             label="Password"
             value={this.state.password}
-            required
             handleChange={this.handleChange}
+            required
           />
-          <CustomButton type="submit" children="Submit Form" />
-          <CustomButton onClick={signInWithGoogle} children="Submit Form">
-            Sign in with Google
-          </CustomButton>
+          <div className="buttons">
+            <CustomButton type="submit" children="Submit Form" />
+            <CustomButton
+              onClick={signInWithGoogle}
+              children="Sign in with Google"
+              isGoogleSignIn
+            />
+          </div>
         </form>
       </div>
     );

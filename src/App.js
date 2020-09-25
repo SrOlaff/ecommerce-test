@@ -16,16 +16,27 @@ class App extends React.Component {
       currentUser: null,
     };
   }
+
+  /* o componentDidMount está sendo utilizado para saber se o user está logado ou não, caso esteja, pegamos as informações dele
+  no firebase, porém essa conexão é aberta, acontece a todo momento na aplicação, devido a isso, quand o componente for desmontado
+  precisamos também parar essa conexão, fazemos isso chamando a função mais uma vez quando o componente for desmontar
+  */
+  unsubscribeFromAuth = null;
   componentDidMount() {
-    auth.onAuthStateChanged((user) => {
+    // O metodo onAuthStateChanged (quem vem da biblioteca auth, do Firebase) server com um listener do state do user
+
+    this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
       this.setState({ currentUser: user });
       console.log(user);
     });
   }
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
+  }
   render() {
     return (
       <div>
-        <Header />
+        <Header currentUser={this.state.currentUser} />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/shop" component={ShopPage} />
