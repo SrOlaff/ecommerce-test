@@ -17,6 +17,10 @@ const CollectionPreview = ({ title, items }) => {
           .map(({ id, ...otherItemProps }) => (
             <CollectionItem key={id} {...otherItemProps} />
           ))}
+
+        {/* O que ele está fazendo aqui é: usando o filter para pegar pegar apenas 4 elementos 
+        (caso o elemento satisfaça a condição dada ele passa, caso contrário ele é filtrado.
+        ) */}
       </div>
     </div>
   );

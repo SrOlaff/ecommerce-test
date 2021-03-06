@@ -9,6 +9,11 @@ const FormInput = ({ handleChange, label, ...otherProps }) => (
         className={`${
           otherProps.value.length ? "shrink" : ""
         } form-input-label`}
+
+        // Nessa parte do código ele faz um operador ternario com a props de email e senha, caso tenha algum valor, esse valor vai ser true
+        // Ja que zero é false, além disso também está atribuindo ao label a classe form-input-label sem nenhuma condição
+
+        // shrink é a propriedade que faz subir
       >
         {label}
       </label>

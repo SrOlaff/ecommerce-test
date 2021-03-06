@@ -26,7 +26,7 @@ class SignIn extends React.Component {
     então eu consigo usar o nome do componentes como variavel no setState.
     */
 
-    const { value, name } = e.target;
+    const { value, name } = e.target; // e = evento form
     this.setState({ [name]: value });
   };
 
